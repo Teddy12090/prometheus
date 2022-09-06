@@ -1,0 +1,31 @@
+version: "3"
+
+networks:
+  prometheus:
+
+services:
+
+  prometheus:
+    build: prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - prometheus
+
+  app:
+    build: .
+    ports:
+      - "7001:7001"
+      - "8080:8080"
+    networks:
+      - prometheus
+
+  grafana:
+    image: grafana/grafana:9.1.2
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+    ports:
+      - "3000:3000"
+    networks:
+      - prometheus
