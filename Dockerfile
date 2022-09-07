@@ -12,4 +12,4 @@ COPY --from=build /home/gradle/src/build/libs/prometheus-0.0.1-SNAPSHOT.jar /usr
 
 ENTRYPOINT java -jar /usr/prometheus-0.0.1-SNAPSHOT.jar
 
-EXPOSE 7001 8080
+EXPOSE 8080

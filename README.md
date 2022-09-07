@@ -10,7 +10,7 @@
 
 2. 連線到 Prometheus
    - Targets: http://localhost:9090/targets
-     - 因為在 prometheus/prometheus.yml 中 target 有設定 app:7001，所以在 Targets 清單中會看到相對應的 url。
+     - 因為在 prometheus/prometheus.yml 中 target 有設定 app:8080，所以在 Targets 清單中會看到相對應的 url。
      ![](images/PrometheusTargets.png)
    - Graph: http://localhost:9090/graph
      - 可以在 Search bar 中輸入 Expression 像是 「_jvm_memory_used_bytes_」然後點擊 Execute 產生圖表
