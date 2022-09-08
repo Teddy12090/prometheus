@@ -5,7 +5,7 @@
    - 服務包含了 sprint boot web app (只有 actuator 功能)、Prometheus、Grafana
 
      ```bash
-     $ docker-compose up
+     $ docker-compose up --build --force-recreate -d
      ```
 
 2. 連線到 Prometheus

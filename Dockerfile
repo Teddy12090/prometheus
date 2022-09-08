@@ -1,8 +1,12 @@
 FROM gradle:7.5-jdk11 AS build
 
-COPY --chown=gradle:gradle . /home/gradle/src
+COPY ["gradle/", "settings.gradle.kts", "build.gradle.kts", "/home/gradle/src/"]
 
 WORKDIR /home/gradle/src
+
+RUN gradle dependencies
+
+COPY --chown=gradle:gradle . /home/gradle/src
 
 RUN gradle build
 
