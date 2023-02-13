@@ -1,9 +1,15 @@
+global:
+  scrape_interval: 15s # 預設情況，每 15 秒爬一次資料
+
+
+# scrape configuration: 設定 Prometheus 要爬的端點，這裡有兩個。
 scrape_configs:
   - job_name: prometheus
+    scrape_interval: 5s  # 此設定，覆蓋預設爬資料的頻率，從原本的 15 秒改成 5 秒
     static_configs:
-      - targets: ["localhost:9090"]
+      - targets: [ "localhost:9090" ]  # Prometheus 自身，metrics_path 為 /metrics
 
   - job_name: actuator
     metrics_path: /actuator/prometheus
     static_configs:
-      - targets: ["app:8080"]
+      - targets: [ "app:8080" ]  # target service，app 是 docker-compose 中的 service name。
